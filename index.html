@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You for My Best Birthday Ever! 🎉</title>
+    <title>🎉 The Best Night Ever - Birthday Celebration 🎉</title>
     <style>
         * {
             margin: 0;
@@ -12,63 +12,89 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ff6b9d 0%, #c844bb 50%, #814bdc 100%);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FF006E 0%, #FB5607 25%, #FFBE0B 50%, #8338EC 75%, #3A86FF 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            overflow-x: hidden;
+            overflow: hidden;
             position: relative;
         }
 
-        /* Animated background balloons */
-        .balloon {
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Premium Particle Background */
+        .particle {
             position: fixed;
-            bottom: -100px;
-            width: 40px;
-            height: 60px;
-            border-radius: 50% 50% 50% 0;
             pointer-events: none;
-            animation: rise 8s infinite ease-in;
-            opacity: 0.7;
+            opacity: 0.3;
+            font-size: 2em;
         }
 
-        @keyframes rise {
-            0% {
-                bottom: -100px;
-                transform: translateX(0) rotate(0deg);
-            }
-            100% {
-                bottom: 150vh;
-                transform: translateX(100px) rotate(360deg);
-            }
+        /* Animated Background Elements */
+        .backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        .balloon:nth-child(1) { background: #FF6B9D; left: 10%; animation-delay: 0s; }
-        .balloon:nth-child(2) { background: #FFC600; left: 20%; animation-delay: 2s; }
-        .balloon:nth-child(3) { background: #00D4FF; left: 30%; animation-delay: 4s; }
-        .balloon:nth-child(4) { background: #00FF88; left: 40%; animation-delay: 1s; }
-        .balloon:nth-child(5) { background: #FF00FF; left: 50%; animation-delay: 3s; }
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .circle {
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .square {
+            animation: rotate 8s infinite linear;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
         .container {
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
-            max-width: 900px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
+            box-shadow: 0 50px 150px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
             width: 100%;
-            padding: 60px 40px;
+            padding: 80px 60px;
             text-align: center;
-            animation: slideIn 0.8s ease-out;
+            animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             z-index: 10;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        @keyframes slideIn {
+        @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px) scale(0.95);
+                transform: translateY(50px) scale(0.9);
             }
             to {
                 opacity: 1;
@@ -76,400 +102,465 @@
             }
         }
 
+        /* Header Section */
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            font-size: 5em;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FF006E, #FB5607, #FFBE0B, #8338EC, #3A86FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        .divider {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FF006E, #3A86FF, transparent);
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+
+        /* Avatar Selection Grid */
+        .selection-section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .description {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 50px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .avatars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .avatar-button {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            background: linear-gradient(135deg, #FF006E, #FB5607);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-size: 4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avatar-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .avatar-button:hover::before {
+            left: 100%;
+        }
+
+        .avatar-button:nth-child(2) {
+            background: linear-gradient(135deg, #FB5607, #FFBE0B);
+            box-shadow: 0 10px 30px rgba(251, 86, 7, 0.3);
+        }
+
+        .avatar-button:nth-child(3) {
+            background: linear-gradient(135deg, #FFBE0B, #8338EC);
+            box-shadow: 0 10px 30px rgba(255, 190, 11, 0.3);
+        }
+
+        .avatar-button:nth-child(4) {
+            background: linear-gradient(135deg, #8338EC, #3A86FF);
+            box-shadow: 0 10px 30px rgba(131, 56, 236, 0.3);
+        }
+
+        .avatar-button:nth-child(5) {
+            background: linear-gradient(135deg, #3A86FF, #FF006E);
+            box-shadow: 0 10px 30px rgba(58, 134, 255, 0.3);
+        }
+
+        .avatar-button:nth-child(6) {
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+        }
+
+        .avatar-button:hover {
+            transform: scale(1.15) translateY(-15px) rotate(10deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: white;
+        }
+
+        .avatar-button:active {
+            transform: scale(1.1) translateY(-10px);
+        }
+
+        /* Input Section */
+        .input-section {
+            margin-top: 40px;
+        }
+
+        .input-label {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: block;
+        }
+
+        #nameInput {
+            width: 100%;
+            max-width: 400px;
+            padding: 18px 25px;
+            font-size: 1.1em;
+            border: 3px solid #FF006E;
+            border-radius: 20px;
+            background: rgba(255, 0, 110, 0.05);
+            color: #333;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        #nameInput:focus {
+            outline: none;
+            border-color: #3A86FF;
+            background: rgba(58, 134, 255, 0.1);
+            box-shadow: 0 0 30px rgba(58, 134, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        #nameInput::placeholder {
+            color: #999;
+        }
+
+        .btn-submit {
+            padding: 18px 50px;
+            font-size: 1.15em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FF006E, #3A86FF);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 15px 40px rgba(255, 0, 110, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s;
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(255, 0, 110, 0.5);
+        }
+
+        .btn-submit:active {
+            transform: translateY(-2px);
+        }
+
+        /* Thank You Section */
+        .thank-you-section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .thank-you-header {
+            margin-bottom: 40px;
+        }
+
+        .avatar-large {
+            font-size: 6em;
+            margin-bottom: 20px;
+            animation: spin 3s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .thank-you-title {
+            font-size: 3em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FF006E, #3A86FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .message-box {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(58, 134, 255, 0.1));
+            border-left: 6px solid #FF006E;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: left;
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #333;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            font-weight: 500;
+        }
+
+        .message-box p {
+            margin-bottom: 20px;
+        }
+
+        .message-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .heartfelt {
+            font-weight: 700;
+            background: linear-gradient(135deg, #FF006E, #FB5607);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .celebration-emoji {
+            font-size: 5em;
+            margin: 40px 0;
+            animation: celebrateFloat 2s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes celebrateFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(10deg); }
+        }
+
+        .btn-back {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 1em;
+            font-weight: 600;
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-back:hover {
+            background: #e0e0e0;
+            transform: translateX(-8px);
+            border-color: #999;
+        }
+
+        /* Premium Confetti */
         .confetti {
             position: fixed;
             pointer-events: none;
             z-index: 100;
         }
 
-        h1 {
-            font-size: 3.5em;
-            background: linear-gradient(135deg, #ff6b9d, #c844bb, #814bdc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            animation: bounce 0.6s ease-out;
-            font-weight: 700;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .subtitle {
-            font-size: 1.3em;
-            background: linear-gradient(135deg, #c844bb, #814bdc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 40px;
-            font-weight: 600;
-        }
-
-        .thank-you-message {
-            font-size: 1.8em;
-            color: #333;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .heart {
-            display: inline-block;
-            color: #ff6b9d;
-            animation: heartbeat 1.4s infinite;
-            margin: 0 10px;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-        }
-
-        .personal-message {
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(200, 68, 187, 0.1) 100%);
-            border-left: 5px solid #ff6b9d;
-            padding: 35px;
-            border-radius: 15px;
-            margin: 40px 0;
-            font-size: 1.15em;
-            line-height: 1.9;
-            color: #333;
-            font-weight: 500;
-            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15);
-        }
-
-        .personal-message p {
-            margin-bottom: 15px;
-        }
-
-        .friends-section {
-            margin-top: 50px;
-            padding-top: 40px;
-            border-top: 3px solid #f0f0f0;
-        }
-
-        .friends-title {
-            font-size: 1.8em;
-            background: linear-gradient(135deg, #ff6b9d, #c844bb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .celebration {
-            margin-top: 40px;
-            font-size: 5em;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-25px); }
-        }
-
-        .footer {
-            margin-top: 30px;
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(200, 68, 187, 0.1) 100%);
-            padding: 20px;
-            border-radius: 10px;
-            color: #666;
-            font-size: 1em;
-            font-weight: 500;
-        }
-
-        /* Friend Selection Styles */
-        .welcome-section {
-            animation: slideIn 0.8s ease-out;
-        }
-
-        .friends-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .friend-card {
-            background: linear-gradient(135deg, #ff6b9d, #c844bb);
-            border-radius: 20px;
-            padding: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            animation: cardAppear 0.6s ease-out;
-            border: 3px solid transparent;
-        }
-
-        .friend-card:hover {
-            transform: translateY(-15px) scale(1.08);
-            box-shadow: 0 20px 50px rgba(200, 68, 187, 0.4);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        @keyframes cardAppear {
-            from {
-                opacity: 0;
-                transform: scale(0.8) translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .friend-avatar {
-            font-size: 3.5em;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .friend-name {
-            color: white;
-            font-weight: 700;
-            font-size: 1.15em;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .name-input-section {
-            animation: slideIn 0.8s ease-out;
-        }
-
-        #nameInput {
-            font-size: 1.1em;
-            padding: 15px 20px;
-            border: 3px solid #ff6b9d;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 400px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            background: #f9f9f9;
-        }
-
-        #nameInput:focus {
-            outline: none;
-            border-color: #c844bb;
-            box-shadow: 0 0 20px rgba(200, 68, 187, 0.4);
-            background: white;
-            transform: scale(1.02);
-        }
-
-        .submit-btn {
-            font-size: 1.1em;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #ff6b9d 0%, #c844bb 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(200, 68, 187, 0.4);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(200, 68, 187, 0.6);
-        }
-
-        .submit-btn:active {
-            transform: translateY(-1px);
-        }
-
-        .back-btn {
-            margin-top: 25px;
-            font-size: 1em;
-            padding: 12px 25px;
-            background: #f0f0f0;
-            color: #333;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: #e0e0e0;
-            transform: translateX(-5px);
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 40px 25px;
+                padding: 50px 30px;
             }
 
             h1 {
                 font-size: 2.5em;
             }
 
-            .thank-you-message {
-                font-size: 1.4em;
+            .logo {
+                font-size: 3.5em;
             }
 
-            .friends-title {
-                font-size: 1.4em;
+            .thank-you-title {
+                font-size: 2.2em;
             }
 
-            .celebration {
+            .avatars-grid {
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                gap: 20px;
+            }
+
+            .avatar-button {
+                width: 100px;
+                height: 100px;
                 font-size: 3em;
             }
 
-            #nameInput {
+            .message-box {
+                padding: 25px;
                 font-size: 1em;
-                padding: 12px 15px;
             }
 
-            .submit-btn {
-                font-size: 1em;
-                padding: 12px 30px;
+            .avatar-large {
+                font-size: 4em;
             }
 
-            .friends-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 15px;
-            }
-
-            .friend-card {
-                padding: 20px;
-            }
-
-            .friend-avatar {
+            .celebration-emoji {
                 font-size: 3em;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Balloons -->
-    <div class="balloon"></div>
-    <div class="balloon"></div>
-    <div class="balloon"></div>
-    <div class="balloon"></div>
-    <div class="balloon"></div>
+    <div class="backdrop">
+        <div class="shape circle" style="width: 200px; height: 200px; background: #FF006E; top: 10%; left: 10%;"></div>
+        <div class="shape square" style="width: 150px; height: 150px; background: #3A86FF; top: 60%; right: 15%;"></div>
+        <div class="shape circle" style="width: 100px; height: 100px; background: #FFBE0B; bottom: 20%; left: 30%;"></div>
+    </div>
 
     <div class="container">
-        <!-- Friend Selection Section -->
-        <div id="selectionSection" class="welcome-section">
-            <h1>🎉 Happy Birthday Celebration 🎉</h1>
-            <p class="subtitle">Select your name to see your special message</p>
-            
-            <div class="friends-grid">
-                <div class="friend-card" onclick="selectFriend('Sarah', '🌟', 'Sarah')">
-                    <span class="friend-avatar">🌟</span>
-                    <div class="friend-name">Sarah</div>
-                </div>
-                <div class="friend-card" onclick="selectFriend('Alex', '🚀', 'Alex')">
-                    <span class="friend-avatar">🚀</span>
-                    <div class="friend-name">Alex</div>
-                </div>
-                <div class="friend-card" onclick="selectFriend('Jordan', '🎸', 'Jordan')">
-                    <span class="friend-avatar">🎸</span>
-                    <div class="friend-name">Jordan</div>
-                </div>
-                <div class="friend-card" onclick="selectFriend('Jamie', '💎', 'Jamie')">
-                    <span class="friend-avatar">💎</span>
-                    <div class="friend-name">Jamie</div>
-                </div>
-                <div class="friend-card" onclick="selectFriend('Morgan', '🌈', 'Morgan')">
-                    <span class="friend-avatar">🌈</span>
-                    <div class="friend-name">Morgan</div>
-                </div>
-                <div class="friend-card" onclick="selectFriend('Casey', '⭐', 'Casey')">
-                    <span class="friend-avatar">⭐</span>
-                    <div class="friend-name">Casey</div>
-                </div>
+        <!-- Selection Section -->
+        <div id="selectionSection" class="selection-section">
+            <div class="header">
+                <div class="logo">🎊</div>
+                <h1>The Best Night Ever</h1>
+                <p class="subtitle">March 6th - A Night to Remember</p>
             </div>
 
-            <p style="margin-top: 30px; color: #999; font-size: 0.95em;">Don't see your name? Enter it below:</p>
-            <form id="nameForm" onsubmit="handleCustomName(event)">
-                <input 
-                    type="text" 
-                    id="nameInput" 
-                    placeholder="Enter your name..." 
-                    autocomplete="off"
-                />
-                <button type="submit" class="submit-btn">I'm Ready! 🎊</button>
-            </form>
+            <div class="divider"></div>
+
+            <p class="description">
+                This was my <span class="heartfelt">best birthday ever</span>, and it wouldn't have been the same without YOU! 
+                Tap your vibe to see your special message 🚀
+            </p>
+
+            <div class="avatars-grid">
+                <button class="avatar-button" onclick="selectAvatar('🌟')">🌟</button>
+                <button class="avatar-button" onclick="selectAvatar('🚀')">🚀</button>
+                <button class="avatar-button" onclick="selectAvatar('🎨')">🎨</button>
+                <button class="avatar-button" onclick="selectAvatar('💎')">💎</button>
+                <button class="avatar-button" onclick="selectAvatar('🌈')">🌈</button>
+                <button class="avatar-button" onclick="selectAvatar('⭐')">⭐</button>
+            </div>
+
+            <div class="input-section">
+                <label class="input-label">Don't see your vibe? Enter your name:</label>
+                <form onsubmit="handleCustomName(event)">
+                    <input type="text" id="nameInput" placeholder="Your name here..." autocomplete="off" />
+                    <button type="submit" class="btn-submit">🎉 Let's Go! 🎉</button>
+                </form>
+            </div>
         </div>
 
-        <!-- Thank You Section (Hidden Initially) -->
+        <!-- Thank You Section -->
         <div id="thankYouSection" class="thank-you-section" style="display: none;">
-            <h1>🎉 Thank You, <span id="nameDisplay"></span>! 🎉</h1>
-            <p class="subtitle">For Making My Birthday Unforgettable</p>
-            
-            <div class="thank-you-message">
-                You made this day absolutely amazing!
-                <span class="heart">❤️</span>
+            <div class="thank-you-header">
+                <div class="avatar-large" id="selectedAvatar">🌟</div>
+                <h2 class="thank-you-title">Thank You!</h2>
             </div>
 
-            <div class="personal-message" id="personalMessage">
-            </div>
+            <div class="celebration-emoji">🎂 ✨ 🎈 🎊</div>
 
-            <div class="friends-section">
-                <h2 class="friends-title">You Mean The World To Me</h2>
-            </div>
+            <div class="message-box" id="personalMessage"></div>
 
-            <div class="celebration">
-                🎂 ✨ 🎈 🎊
-            </div>
+            <div class="celebration-emoji">💝 🌟 🎉 💫</div>
 
-            <div class="footer">
-                <p>With heartfelt gratitude and endless appreciation</p>
-            </div>
-
-            <button class="back-btn" onclick="goBack()">← Back to Friends</button>
+            <button class="btn-back" onclick="goBack()">← Back to Avatars</button>
         </div>
     </div>
 
     <script>
-        // Personalized messages for each friend
-        const friendMessages = {
-            'Sarah': {
-                avatar: '🌟',
-                message: `<p>Sarah, you have this incredible ability to light up every room you walk into. On my birthday, your laughter and warmth made everything feel special. Thank you for always being there with genuine care and unconditional support. You don't just celebrate with me—you celebrate *for* me, and that means everything. Our friendship is truly one of my greatest blessings.</p><p style="margin-top: 15px;">Your thoughtfulness and loyalty inspire me every single day. I'm so grateful to have someone like you by my side who gets me completely and still chooses to be here. Here's to many more celebrations together, my forever friend. 💝</p>`
+        const messages = {
+            '🌟': {
+                subject: 'a Shining Star',
+                message: `You absolutely radiated with brightness and made my birthday shine even more. Your positive energy was contagious, and every moment with you felt magical. Thank you for being the star that lights up my world. Your presence was truly unforgettable, and I'm endlessly grateful for the joy you brought to my special day. 💫`
             },
-            'Alex': {
-                avatar: '🚀',
-                message: `<p>Alex, you bring adventure and excitement to everything we do together. Your energy and passion are contagious, and being around you always makes me feel like anything is possible. On my birthday, you didn't just show up—you brought your whole heart and made me feel like the most important person in the room.</p><p style="margin-top: 15px;">Thank you for being the kind of friend who pushes me to be better, laugh harder, and dream bigger. Your friendship has changed my life in ways you might never fully realize. I'm so blessed to have someone as amazing as you. Here's to the incredible memories we've created and those yet to come! 🌟</p>`
+            '🚀': {
+                subject: 'a Rocket of Energy',
+                message: `You brought incredible momentum and excitement to every single moment! Your enthusiasm and adventurous spirit made my birthday an absolute blast. You didn't just attend—you helped launch this party to the stratosphere! Thank you for bringing that infectious energy that made everything feel larger than life. You're one of a kind! 🚀`
             },
-            'Jordan': {
-                avatar: '🎸',
-                message: `<p>Jordan, you have this beautiful way of understanding people without them ever having to explain. Your empathy and genuine nature make you someone truly special. On my birthday, you made me feel seen and loved in a way that I'll never forget. You gave me not just your presence, but your authentic self—and that's the greatest gift.</p><p style="margin-top: 15px;">Thank you for being the steady, dependable friend who's always there through everything. Your kindness sets you apart, and your presence in my life is truly a treasure. I admire you more than words can express. Here's to our friendship that grows stronger with every moment we share! 🎶</p>`
+            '🎨': {
+                subject: 'an Artist of Kindness',
+                message: `You painted my birthday with the most beautiful moments and genuine care. Your thoughtfulness and creative spirit made everything feel extra special. You have this amazing ability to add color and meaning to everything you do. Thank you for crafting such incredible memories with me. You truly are a masterpiece of a friend! 🎨`
             },
-            'Jamie': {
-                avatar: '💎',
-                message: `<p>Jamie, you are rare and precious—a true gem in my life. Your strength, beauty, and brilliance inspire me constantly. On my birthday, you showed up with such love and enthusiasm that made the entire day shine brighter. You have this special way of making people feel valued and important, and you did that for me in the most wonderful way.</p><p style="margin-top: 15px;">Thank you for seeing the best in me even when I can't see it in myself. Your friendship is priceless, and having you celebrate with me was like having a piece of my heart right there beside me. I'm endlessly grateful for your presence, your wisdom, and your incredible spirit. You make every day better! 💫</p>`
+            '💎': {
+                subject: 'a Precious Gem',
+                message: `You are rare, valuable, and absolutely irreplaceable. Your presence on my birthday made it infinitely more precious. You shine with an authenticity and beauty that's truly exceptional. Every moment with you feels like a treasure, and my birthday was made infinitely better because you were there. Thank you for being the gem that you are! 💎`
             },
-            'Morgan': {
-                avatar: '🌈',
-                message: `<p>Morgan, you bring color and joy to everything around you. Your positivity is inspiring, and your ability to find the good in every situation is remarkable. On my birthday, you made me laugh like I haven't in so long, and you filled the day with such pure happiness. Thank you for reminding me to find joy in the simple moments.</p><p style="margin-top: 15px;">Having you by my side means I get to experience life through your beautiful perspective. You teach me to embrace life's adventures with optimism and grace. Your friendship has taught me so much about resilience and happiness. I'm so grateful for you and the light you bring into my world. Let's keep creating beautiful memories together! 🌸</p>`
+            '🌈': {
+                subject: 'a Rainbow of Joy',
+                message: `You brought every color of happiness and beauty to my celebration. Your vibrant spirit and optimistic nature made everything feel brighter and more joyful. You have this incredible gift of bringing hope and wonder to those around you. Thank you for painting my birthday in the most beautiful shades of memories I'll cherish forever! 🌈`
             },
-            'Casey': {
-                avatar: '⭐',
-                message: `<p>Casey, you shine bright with such authenticity and kindness. Your friendship means more to me than you could ever know. On my birthday, you made me feel celebrated and cherished in the most heartfelt way. You have this gift of making people feel truly special, and I felt it deeply.</p><p style="margin-top: 15px;">Thank you for being exactly who you are—someone genuine, caring, and truly one of a kind. Your loyalty and support have meant the world to me through thick and thin. I'm so blessed our paths crossed and that we get to do this life thing together. You're an absolute star, and I'm grateful every single day for your friendship. Here's to you and the magic you bring! ✨</p>`
+            '⭐': {
+                subject: 'a Star of Loyalty',
+                message: `You stand out in the most amazing way. Your unwavering support and genuine friendship mean the world to me. You showed up not just physically, but with your whole heart, making my birthday feel incredibly special. Your loyalty and authenticity are what make you so exceptional. Thank you for being the star that never stops shining in my life! ⭐`
             }
         };
 
-        let currentFriend = null;
-
-        function selectFriend(name, emoji, displayName) {
-            currentFriend = name;
-            const data = friendMessages[name];
-            
+        function selectAvatar(emoji) {
+            const data = messages[emoji];
+            document.getElementById('selectedAvatar').textContent = emoji;
+            document.getElementById('personalMessage').innerHTML = `
+                <p>You are <span class="heartfelt">${data.subject}</span></p>
+                <p>${data.message}</p>
+            `;
             document.getElementById('selectionSection').style.display = 'none';
-            document.getElementById('nameDisplay').textContent = displayName;
-            document.getElementById('personalMessage').innerHTML = data.message;
             document.getElementById('thankYouSection').style.display = 'block';
-            
             createConfetti();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -477,16 +568,14 @@
         function handleCustomName(event) {
             event.preventDefault();
             const name = document.getElementById('nameInput').value.trim();
-            
             if (name) {
-                currentFriend = name;
-                const customMessage = `<p>Dear ${name}, thank you so much for being part of my birthday celebration on March 6th. Your presence added so much joy and meaning to my day. It was truly my best birthday ever, and having you there made all the difference.</p><p style="margin-top: 15px;">You are special to me, and I want you to know how much your friendship means. The memories we created together will stay with me forever. Thank you for being an amazing friend and for making my birthday unforgettable. I'm so grateful to have you in my life! 💝</p>`;
-                
+                document.getElementById('selectedAvatar').textContent = '✨';
+                document.getElementById('personalMessage').innerHTML = `
+                    <p><span class="heartfelt">Dear ${name}</span></p>
+                    <p>Thank you so much for being part of my celebration on March 6th. Your presence made my birthday incredibly special and meaningful. You added so much joy, laughter, and warmth to the day. This truly was my best birthday ever, and having you there was a huge part of that. You're someone truly special to me, and I'm grateful for you every single day. Thank you for making this night unforgettable! 💝</p>
+                `;
                 document.getElementById('selectionSection').style.display = 'none';
-                document.getElementById('nameDisplay').textContent = name;
-                document.getElementById('personalMessage').innerHTML = customMessage;
                 document.getElementById('thankYouSection').style.display = 'block';
-                
                 createConfetti();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -499,30 +588,30 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Create confetti effect
         function createConfetti() {
-            const colors = ['#ff6b9d', '#c844bb', '#814bdc', '#FFC600', '#00D4FF'];
-            const confettiCount = 60;
+            const colors = ['#FF006E', '#FB5607', '#FFBE0B', '#8338EC', '#3A86FF'];
+            const emojis = ['🎉', '✨', '🎊', '🎈', '💝', '🌟', '🚀', '🎁'];
+            const count = 80;
 
-            for (let i = 0; i < confettiCount; i++) {
+            for (let i = 0; i < count; i++) {
                 setTimeout(() => {
                     const confetti = document.createElement('div');
                     confetti.className = 'confetti';
                     confetti.style.left = Math.random() * window.innerWidth + 'px';
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.width = Math.random() * 12 + 6 + 'px';
-                    confetti.style.height = confetti.style.width;
-                    confetti.style.borderRadius = '50%';
-                    confetti.style.opacity = Math.random() * 0.8 + 0.3;
+                    confetti.style.top = '-50px';
+                    confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    confetti.style.fontSize = Math.random() * 20 + 20 + 'px';
+                    confetti.style.opacity = Math.random() * 0.7 + 0.3;
                     
                     document.body.appendChild(confetti);
 
                     let pos = 0;
                     const speed = Math.random() * 3 + 2;
-                    
+                    const drift = Math.random() * 100 - 50;
+
                     const animate = () => {
                         pos += speed;
-                        confetti.style.transform = `translate(${Math.sin(pos * 0.02) * 80}px, ${pos}px) rotate(${pos * 2}deg)`;
+                        confetti.style.transform = `translate(${Math.sin(pos * 0.02) * drift}px, ${pos}px) rotate(${pos * 3}deg)`;
                         
                         if (pos < window.innerHeight + 100) {
                             requestAnimationFrame(animate);
@@ -532,16 +621,9 @@
                     };
 
                     animate();
-                }, i * 20);
+                }, i * 15);
             }
         }
-
-        // Trigger confetti on page load for thank you page
-        window.addEventListener('load', function() {
-            if (document.getElementById('thankYouSection').style.display !== 'none') {
-                createConfetti();
-            }
-        });
     </script>
 </body>
 </html>
