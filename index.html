@@ -13,47 +13,84 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff6b9d 0%, #c844bb 50%, #814bdc 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
             overflow-x: hidden;
+            position: relative;
         }
+
+        /* Animated background balloons */
+        .balloon {
+            position: fixed;
+            bottom: -100px;
+            width: 40px;
+            height: 60px;
+            border-radius: 50% 50% 50% 0;
+            pointer-events: none;
+            animation: rise 8s infinite ease-in;
+            opacity: 0.7;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                bottom: 150vh;
+                transform: translateX(100px) rotate(360deg);
+            }
+        }
+
+        .balloon:nth-child(1) { background: #FF6B9D; left: 10%; animation-delay: 0s; }
+        .balloon:nth-child(2) { background: #FFC600; left: 20%; animation-delay: 2s; }
+        .balloon:nth-child(3) { background: #00D4FF; left: 30%; animation-delay: 4s; }
+        .balloon:nth-child(4) { background: #00FF88; left: 40%; animation-delay: 1s; }
+        .balloon:nth-child(5) { background: #FF00FF; left: 50%; animation-delay: 3s; }
 
         .container {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
             max-width: 900px;
             width: 100%;
             padding: 60px 40px;
             text-align: center;
             animation: slideIn 0.8s ease-out;
+            position: relative;
+            z-index: 10;
         }
 
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(30px) scale(0.95);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
         .confetti {
             position: fixed;
             pointer-events: none;
+            z-index: 100;
         }
 
         h1 {
             font-size: 3.5em;
-            color: #667eea;
+            background: linear-gradient(135deg, #ff6b9d, #c844bb, #814bdc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 10px;
             animation: bounce 0.6s ease-out;
+            font-weight: 700;
         }
 
         @keyframes bounce {
@@ -63,9 +100,12 @@
 
         .subtitle {
             font-size: 1.3em;
-            color: #764ba2;
+            background: linear-gradient(135deg, #c844bb, #814bdc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 40px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .thank-you-message {
@@ -78,66 +118,124 @@
 
         .heart {
             display: inline-block;
-            color: #ff6b6b;
+            color: #ff6b9d;
             animation: heartbeat 1.4s infinite;
             margin: 0 10px;
         }
 
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+            50% { transform: scale(1.3); }
         }
 
         .personal-message {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border-left: 5px solid #667eea;
-            padding: 30px;
-            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(200, 68, 187, 0.1) 100%);
+            border-left: 5px solid #ff6b9d;
+            padding: 35px;
+            border-radius: 15px;
             margin: 40px 0;
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #555;
-            font-style: italic;
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #333;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15);
+        }
+
+        .personal-message p {
+            margin-bottom: 15px;
         }
 
         .friends-section {
             margin-top: 50px;
             padding-top: 40px;
-            border-top: 2px solid #e0e0e0;
+            border-top: 3px solid #f0f0f0;
         }
 
         .friends-title {
             font-size: 1.8em;
-            color: #667eea;
+            background: linear-gradient(135deg, #ff6b9d, #c844bb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 30px;
             font-weight: 600;
         }
 
-        .message-to-friends {
-            background: #fff9e6;
-            padding: 25px;
-            border-radius: 10px;
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 30px;
-        }
-
         .celebration {
             margin-top: 40px;
-            font-size: 4em;
+            font-size: 5em;
             animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-25px); }
         }
 
         .footer {
             margin-top: 30px;
-            color: #999;
-            font-size: 0.95em;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(200, 68, 187, 0.1) 100%);
+            padding: 20px;
+            border-radius: 10px;
+            color: #666;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        /* Friend Selection Styles */
+        .welcome-section {
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .friends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .friend-card {
+            background: linear-gradient(135deg, #ff6b9d, #c844bb);
+            border-radius: 20px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            animation: cardAppear 0.6s ease-out;
+            border: 3px solid transparent;
+        }
+
+        .friend-card:hover {
+            transform: translateY(-15px) scale(1.08);
+            box-shadow: 0 20px 50px rgba(200, 68, 187, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .friend-avatar {
+            font-size: 3.5em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .friend-name {
+            color: white;
+            font-weight: 700;
+            font-size: 1.15em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .name-input-section {
@@ -147,7 +245,7 @@
         #nameInput {
             font-size: 1.1em;
             padding: 15px 20px;
-            border: 3px solid #667eea;
+            border: 3px solid #ff6b9d;
             border-radius: 10px;
             width: 100%;
             max-width: 400px;
@@ -158,36 +256,50 @@
 
         #nameInput:focus {
             outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 15px rgba(118, 75, 162, 0.3);
+            border-color: #c844bb;
+            box-shadow: 0 0 20px rgba(200, 68, 187, 0.4);
             background: white;
             transform: scale(1.02);
-        }
-
-        #nameInput::placeholder {
-            color: #ccc;
         }
 
         .submit-btn {
             font-size: 1.1em;
             padding: 15px 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff6b9d 0%, #c844bb 100%);
             color: white;
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 20px rgba(200, 68, 187, 0.4);
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 12px 30px rgba(200, 68, 187, 0.6);
         }
 
         .submit-btn:active {
             transform: translateY(-1px);
+        }
+
+        .back-btn {
+            margin-top: 25px;
+            font-size: 1em;
+            padding: 12px 25px;
+            background: #f0f0f0;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #e0e0e0;
+            transform: translateX(-5px);
         }
 
         @media (max-width: 768px) {
@@ -220,27 +332,72 @@
                 font-size: 1em;
                 padding: 12px 30px;
             }
+
+            .friends-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+
+            .friend-card {
+                padding: 20px;
+            }
+
+            .friend-avatar {
+                font-size: 3em;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Balloons -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
     <div class="container">
-        <!-- Name Input Section -->
-        <div id="nameInputSection" class="name-input-section">
-            <h1 style="margin-bottom: 30px;">🎉 Welcome! 🎉</h1>
-            <p class="subtitle">I'm so glad you celebrated with me!</p>
-            <form id="nameForm">
-                <label for="nameInput" style="font-size: 1.2em; color: #555; display: block; margin-bottom: 20px;">
-                    What's your name?
-                </label>
+        <!-- Friend Selection Section -->
+        <div id="selectionSection" class="welcome-section">
+            <h1>🎉 Happy Birthday Celebration 🎉</h1>
+            <p class="subtitle">Select your name to see your special message</p>
+            
+            <div class="friends-grid">
+                <div class="friend-card" onclick="selectFriend('Sarah', '🌟', 'Sarah')">
+                    <span class="friend-avatar">🌟</span>
+                    <div class="friend-name">Sarah</div>
+                </div>
+                <div class="friend-card" onclick="selectFriend('Alex', '🚀', 'Alex')">
+                    <span class="friend-avatar">🚀</span>
+                    <div class="friend-name">Alex</div>
+                </div>
+                <div class="friend-card" onclick="selectFriend('Jordan', '🎸', 'Jordan')">
+                    <span class="friend-avatar">🎸</span>
+                    <div class="friend-name">Jordan</div>
+                </div>
+                <div class="friend-card" onclick="selectFriend('Jamie', '💎', 'Jamie')">
+                    <span class="friend-avatar">💎</span>
+                    <div class="friend-name">Jamie</div>
+                </div>
+                <div class="friend-card" onclick="selectFriend('Morgan', '🌈', 'Morgan')">
+                    <span class="friend-avatar">🌈</span>
+                    <div class="friend-name">Morgan</div>
+                </div>
+                <div class="friend-card" onclick="selectFriend('Casey', '⭐', 'Casey')">
+                    <span class="friend-avatar">⭐</span>
+                    <div class="friend-name">Casey</div>
+                </div>
+            </div>
+
+            <p style="margin-top: 30px; color: #999; font-size: 0.95em;">Don't see your name? Enter it below:</p>
+            <form id="nameForm" onsubmit="handleCustomName(event)">
                 <input 
                     type="text" 
                     id="nameInput" 
                     placeholder="Enter your name..." 
-                    required
                     autocomplete="off"
-                "/>
-                <button type="submit" class="submit-btn">Celebrate</button>
+                />
+                <button type="submit" class="submit-btn">I'm Ready! 🎊</button>
             </form>
         </div>
 
@@ -254,29 +411,11 @@
                 <span class="heart">❤️</span>
             </div>
 
-            <div class="personal-message">
-                <p>
-                    March 6th will forever hold a special place in my heart. With all of you by my side, 
-                    celebrating together, it truly became my <strong>best birthday ever!</strong>
-                </p>
-                <p style="margin-top: 15px;">
-                    Your presence filled the day with joy, laughter, and memories I'll treasure forever. 
-                    Thank you for being there and making me feel so loved and appreciated.
-                </p>
+            <div class="personal-message" id="personalMessage">
             </div>
 
             <div class="friends-section">
-                <h2 class="friends-title">Special Thanks to You,</h2>
-                <div class="message-to-friends">
-                    <p>
-                        <span id="nameDisplayPersonal"></span>, you made this celebration one-of-a-kind. Your thoughtfulness, your smile, 
-                        your encouragement, and your friendship mean the world to me.
-                    </p>
-                    <p style="margin-top: 15px;">
-                        I feel so blessed to have a friend like you in my life. Thank you for showing up, 
-                        for caring, and for making me feel genuinely special on my day.
-                    </p>
-                </div>
+                <h2 class="friends-title">You Mean The World To Me</h2>
             </div>
 
             <div class="celebration">
@@ -286,37 +425,84 @@
             <div class="footer">
                 <p>With heartfelt gratitude and endless appreciation</p>
             </div>
+
+            <button class="back-btn" onclick="goBack()">← Back to Friends</button>
         </div>
     </div>
 
     <script>
-        // Handle name form submission
-        document.getElementById('nameForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Personalized messages for each friend
+        const friendMessages = {
+            'Sarah': {
+                avatar: '🌟',
+                message: `<p>Sarah, you have this incredible ability to light up every room you walk into. On my birthday, your laughter and warmth made everything feel special. Thank you for always being there with genuine care and unconditional support. You don't just celebrate with me—you celebrate *for* me, and that means everything. Our friendship is truly one of my greatest blessings.</p><p style="margin-top: 15px;">Your thoughtfulness and loyalty inspire me every single day. I'm so grateful to have someone like you by my side who gets me completely and still chooses to be here. Here's to many more celebrations together, my forever friend. 💝</p>`
+            },
+            'Alex': {
+                avatar: '🚀',
+                message: `<p>Alex, you bring adventure and excitement to everything we do together. Your energy and passion are contagious, and being around you always makes me feel like anything is possible. On my birthday, you didn't just show up—you brought your whole heart and made me feel like the most important person in the room.</p><p style="margin-top: 15px;">Thank you for being the kind of friend who pushes me to be better, laugh harder, and dream bigger. Your friendship has changed my life in ways you might never fully realize. I'm so blessed to have someone as amazing as you. Here's to the incredible memories we've created and those yet to come! 🌟</p>`
+            },
+            'Jordan': {
+                avatar: '🎸',
+                message: `<p>Jordan, you have this beautiful way of understanding people without them ever having to explain. Your empathy and genuine nature make you someone truly special. On my birthday, you made me feel seen and loved in a way that I'll never forget. You gave me not just your presence, but your authentic self—and that's the greatest gift.</p><p style="margin-top: 15px;">Thank you for being the steady, dependable friend who's always there through everything. Your kindness sets you apart, and your presence in my life is truly a treasure. I admire you more than words can express. Here's to our friendship that grows stronger with every moment we share! 🎶</p>`
+            },
+            'Jamie': {
+                avatar: '💎',
+                message: `<p>Jamie, you are rare and precious—a true gem in my life. Your strength, beauty, and brilliance inspire me constantly. On my birthday, you showed up with such love and enthusiasm that made the entire day shine brighter. You have this special way of making people feel valued and important, and you did that for me in the most wonderful way.</p><p style="margin-top: 15px;">Thank you for seeing the best in me even when I can't see it in myself. Your friendship is priceless, and having you celebrate with me was like having a piece of my heart right there beside me. I'm endlessly grateful for your presence, your wisdom, and your incredible spirit. You make every day better! 💫</p>`
+            },
+            'Morgan': {
+                avatar: '🌈',
+                message: `<p>Morgan, you bring color and joy to everything around you. Your positivity is inspiring, and your ability to find the good in every situation is remarkable. On my birthday, you made me laugh like I haven't in so long, and you filled the day with such pure happiness. Thank you for reminding me to find joy in the simple moments.</p><p style="margin-top: 15px;">Having you by my side means I get to experience life through your beautiful perspective. You teach me to embrace life's adventures with optimism and grace. Your friendship has taught me so much about resilience and happiness. I'm so grateful for you and the light you bring into my world. Let's keep creating beautiful memories together! 🌸</p>`
+            },
+            'Casey': {
+                avatar: '⭐',
+                message: `<p>Casey, you shine bright with such authenticity and kindness. Your friendship means more to me than you could ever know. On my birthday, you made me feel celebrated and cherished in the most heartfelt way. You have this gift of making people feel truly special, and I felt it deeply.</p><p style="margin-top: 15px;">Thank you for being exactly who you are—someone genuine, caring, and truly one of a kind. Your loyalty and support have meant the world to me through thick and thin. I'm so blessed our paths crossed and that we get to do this life thing together. You're an absolute star, and I'm grateful every single day for your friendship. Here's to you and the magic you bring! ✨</p>`
+            }
+        };
+
+        let currentFriend = null;
+
+        function selectFriend(name, emoji, displayName) {
+            currentFriend = name;
+            const data = friendMessages[name];
             
+            document.getElementById('selectionSection').style.display = 'none';
+            document.getElementById('nameDisplay').textContent = displayName;
+            document.getElementById('personalMessage').innerHTML = data.message;
+            document.getElementById('thankYouSection').style.display = 'block';
+            
+            createConfetti();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleCustomName(event) {
+            event.preventDefault();
             const name = document.getElementById('nameInput').value.trim();
             
             if (name) {
-                // Hide name input section
-                document.getElementById('nameInputSection').style.display = 'none';
+                currentFriend = name;
+                const customMessage = `<p>Dear ${name}, thank you so much for being part of my birthday celebration on March 6th. Your presence added so much joy and meaning to my day. It was truly my best birthday ever, and having you there made all the difference.</p><p style="margin-top: 15px;">You are special to me, and I want you to know how much your friendship means. The memories we created together will stay with me forever. Thank you for being an amazing friend and for making my birthday unforgettable. I'm so grateful to have you in my life! 💝</p>`;
                 
-                // Show thank you section with personalized name
+                document.getElementById('selectionSection').style.display = 'none';
                 document.getElementById('nameDisplay').textContent = name;
-                document.getElementById('nameDisplayPersonal').textContent = name;
+                document.getElementById('personalMessage').innerHTML = customMessage;
                 document.getElementById('thankYouSection').style.display = 'block';
                 
-                // Trigger confetti
                 createConfetti();
-                
-                // Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-        });
+        }
+
+        function goBack() {
+            document.getElementById('thankYouSection').style.display = 'none';
+            document.getElementById('selectionSection').style.display = 'block';
+            document.getElementById('nameInput').value = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         // Create confetti effect
         function createConfetti() {
-            const colors = ['#667eea', '#764ba2', '#ff6b6b', '#ffd93d', '#6bcf7f'];
-            const confettiCount = 50;
+            const colors = ['#ff6b9d', '#c844bb', '#814bdc', '#FFC600', '#00D4FF'];
+            const confettiCount = 60;
 
             for (let i = 0; i < confettiCount; i++) {
                 setTimeout(() => {
@@ -324,22 +510,19 @@
                     confetti.className = 'confetti';
                     confetti.style.left = Math.random() * window.innerWidth + 'px';
                     confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.width = Math.random() * 10 + 5 + 'px';
+                    confetti.style.width = Math.random() * 12 + 6 + 'px';
                     confetti.style.height = confetti.style.width;
                     confetti.style.borderRadius = '50%';
-                    confetti.style.opacity = Math.random() * 0.7 + 0.3;
+                    confetti.style.opacity = Math.random() * 0.8 + 0.3;
                     
                     document.body.appendChild(confetti);
 
                     let pos = 0;
                     const speed = Math.random() * 3 + 2;
-                    const angle = Math.random() * Math.PI * 2;
-                    const vx = Math.cos(angle) * speed;
-                    const vy = Math.sin(angle) * speed;
-
+                    
                     const animate = () => {
                         pos += speed;
-                        confetti.style.transform = `translate(${Math.sin(pos * 0.02) * 50}px, ${pos}px)`;
+                        confetti.style.transform = `translate(${Math.sin(pos * 0.02) * 80}px, ${pos}px) rotate(${pos * 2}deg)`;
                         
                         if (pos < window.innerHeight + 100) {
                             requestAnimationFrame(animate);
@@ -349,23 +532,16 @@
                     };
 
                     animate();
-                }, i * 30);
+                }, i * 20);
             }
         }
 
-        // Trigger confetti on page load only if already on thank you page
+        // Trigger confetti on page load for thank you page
         window.addEventListener('load', function() {
             if (document.getElementById('thankYouSection').style.display !== 'none') {
                 createConfetti();
             }
         });
-
-        // Trigger confetti every 5 seconds on thank you page
-        setInterval(function() {
-            if (document.getElementById('thankYouSection').style.display !== 'none') {
-                createConfetti();
-            }
-        }, 5000);
     </script>
 </body>
 </html>
