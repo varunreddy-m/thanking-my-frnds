@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 The Best Night Ever - Birthday Celebration 🎉</title>
+    <title>🎉 Celebrate with Me - A Special Thank You 🎉</title>
     <style>
         * {
             margin: 0;
@@ -12,10 +12,10 @@
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #FF006E 0%, #FB5607 25%, #FFBE0B 50%, #8338EC 75%, #3A86FF 100%);
+            font-family: 'Poppins', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
             background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
+            animation: gradientShift 12s ease infinite;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -31,124 +31,184 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Premium Particle Background */
-        .particle {
+        /* Animated Background */
+        .stars {
             position: fixed;
-            pointer-events: none;
-            opacity: 0.3;
-            font-size: 2em;
-        }
-
-        /* Animated Background Elements */
-        .backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            overflow: hidden;
-            z-index: 1;
+            z-index: 0;
         }
 
-        .shape {
+        .star {
             position: absolute;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-
-        .circle {
+            width: 2px;
+            height: 2px;
+            background: white;
             border-radius: 50%;
-            animation: float 6s infinite ease-in-out;
+            animation: twinkle 3s infinite;
+            opacity: 0.6;
         }
 
-        .square {
-            animation: rotate 8s infinite linear;
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            50% { transform: translateY(-30px) translateX(20px); }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 40px;
-            box-shadow: 0 50px 150px rgba(0, 0, 0, 0.3);
-            max-width: 1000px;
-            width: 100%;
-            padding: 80px 60px;
-            text-align: center;
-            animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        /* Landing Section */
+        .landing {
             position: relative;
             z-index: 10;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        @keyframes slideInUp {
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(50px) scale(0.9);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
         }
 
-        /* Header Section */
-        .header {
-            margin-bottom: 50px;
+        .landing-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
+            padding: 80px 60px;
+            box-shadow: 0 50px 150px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            max-width: 800px;
+            width: 100%;
         }
 
-        .logo {
-            font-size: 5em;
+        .emoji-burst {
+            font-size: 6em;
             margin-bottom: 20px;
-            animation: bounce 2s ease-in-out infinite;
+            animation: bounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
             display: inline-block;
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(5deg); }
+            50% { transform: translateY(-40px) rotate(10deg); }
         }
 
         h1 {
-            font-size: 4em;
-            font-weight: 800;
-            background: linear-gradient(135deg, #FF006E, #FB5607, #FFBE0B, #8338EC, #3A86FF);
+            font-size: 3.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 15px;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
             line-height: 1.2;
         }
 
-        .subtitle {
-            font-size: 1.4em;
+        .tagline {
+            font-size: 1.3em;
             color: #666;
+            margin-bottom: 50px;
             font-weight: 500;
-            margin-bottom: 30px;
             letter-spacing: 0.5px;
         }
 
-        .divider {
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #FF006E, #3A86FF, transparent);
-            margin: 40px 0;
-            border-radius: 2px;
+        .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
-        /* Avatar Selection Grid */
-        .selection-section {
-            animation: fadeIn 0.8s ease-out;
+        .input-label {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #333;
+            text-align: left;
+        }
+
+        #nameInput {
+            padding: 20px 30px;
+            font-size: 1.15em;
+            border: 3px solid transparent;
+            border-radius: 25px;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)) padding-box,
+                        linear-gradient(135deg, #667eea, #764ba2, #f093fb) border-box;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        #nameInput:focus {
+            outline: none;
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+        }
+
+        #nameInput::placeholder {
+            color: #aaa;
+        }
+
+        .btn-primary {
+            padding: 20px 60px;
+            font-size: 1.2em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 70px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px);
+        }
+
+        /* Modal Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
         }
 
         @keyframes fadeIn {
@@ -156,275 +216,184 @@
             to { opacity: 1; }
         }
 
-        .description {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 50px;
-            font-weight: 500;
-            line-height: 1.6;
-        }
-
-        .avatars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+        .modal-content {
+            background: white;
+            margin: auto;
+            padding: 0;
+            border-radius: 40px;
+            width: 95%;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 60px 200px rgba(0, 0, 0, 0.5);
+            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        .avatar-button {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid transparent;
-            background: linear-gradient(135deg, #FF006E, #FB5607);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            font-size: 4em;
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            padding: 60px 40px 40px;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-size: 3em;
+            color: white;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .relationship-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .image-container {
+            padding: 40px;
+            text-align: center;
+            background: rgba(102, 126, 234, 0.08);
+        }
+
+        .memory-image {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            border-radius: 25px;
+            object-fit: cover;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 4px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(244, 143, 251, 0.2));
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
-            position: relative;
-            overflow: hidden;
+            font-size: 4em;
+            border: 3px dashed rgba(102, 126, 234, 0.3);
         }
 
-        .avatar-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
+        .modal-body {
+            padding: 40px;
         }
 
-        .avatar-button:hover::before {
-            left: 100%;
-        }
-
-        .avatar-button:nth-child(2) {
-            background: linear-gradient(135deg, #FB5607, #FFBE0B);
-            box-shadow: 0 10px 30px rgba(251, 86, 7, 0.3);
-        }
-
-        .avatar-button:nth-child(3) {
-            background: linear-gradient(135deg, #FFBE0B, #8338EC);
-            box-shadow: 0 10px 30px rgba(255, 190, 11, 0.3);
-        }
-
-        .avatar-button:nth-child(4) {
-            background: linear-gradient(135deg, #8338EC, #3A86FF);
-            box-shadow: 0 10px 30px rgba(131, 56, 236, 0.3);
-        }
-
-        .avatar-button:nth-child(5) {
-            background: linear-gradient(135deg, #3A86FF, #FF006E);
-            box-shadow: 0 10px 30px rgba(58, 134, 255, 0.3);
-        }
-
-        .avatar-button:nth-child(6) {
-            background: linear-gradient(135deg, #FF006E, #8338EC);
-            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
-        }
-
-        .avatar-button:hover {
-            transform: scale(1.15) translateY(-15px) rotate(10deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: white;
-        }
-
-        .avatar-button:active {
-            transform: scale(1.1) translateY(-10px);
-        }
-
-        /* Input Section */
-        .input-section {
-            margin-top: 40px;
-        }
-
-        .input-label {
+        .message-content {
             font-size: 1.1em;
-            color: #555;
-            margin-bottom: 20px;
-            font-weight: 600;
-            display: block;
-        }
-
-        #nameInput {
-            width: 100%;
-            max-width: 400px;
-            padding: 18px 25px;
-            font-size: 1.1em;
-            border: 3px solid #FF006E;
-            border-radius: 20px;
-            background: rgba(255, 0, 110, 0.05);
+            line-height: 1.9;
             color: #333;
-            transition: all 0.3s ease;
             font-weight: 500;
             margin-bottom: 20px;
         }
 
-        #nameInput:focus {
-            outline: none;
-            border-color: #3A86FF;
-            background: rgba(58, 134, 255, 0.1);
-            box-shadow: 0 0 30px rgba(58, 134, 255, 0.3);
-            transform: scale(1.02);
+        .message-content p {
+            margin-bottom: 15px;
         }
 
-        #nameInput::placeholder {
-            color: #999;
-        }
-
-        .btn-submit {
-            padding: 18px 50px;
-            font-size: 1.15em;
+        .highlight {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(244, 143, 251, 0.2));
+            padding: 3px 8px;
+            border-radius: 8px;
             font-weight: 700;
-            background: linear-gradient(135deg, #FF006E, #3A86FF);
+            color: #667eea;
+        }
+
+        .celebration-icons {
+            text-align: center;
+            font-size: 3em;
+            margin: 30px 0;
+            animation: float 3s ease-in-out infinite;
+            letter-spacing: 10px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .modal-footer {
+            padding: 30px 40px 40px;
+            text-align: center;
+        }
+
+        .btn-close {
+            padding: 15px 50px;
+            font-size: 1em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
             border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 15px 40px rgba(255, 0, 110, 0.4);
-            letter-spacing: 1px;
+            transition: all 0.3s ease;
             text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
+            letter-spacing: 1px;
+            margin-right: 10px;
         }
 
-        .btn-submit::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s;
+        .btn-close:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
         }
 
-        .btn-submit:hover::before {
-            left: 100%;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 60px rgba(255, 0, 110, 0.5);
-        }
-
-        .btn-submit:active {
-            transform: translateY(-2px);
-        }
-
-        /* Thank You Section */
-        .thank-you-section {
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .thank-you-header {
-            margin-bottom: 40px;
-        }
-
-        .avatar-large {
-            font-size: 6em;
-            margin-bottom: 20px;
-            animation: spin 3s linear infinite;
-            display: inline-block;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .thank-you-title {
-            font-size: 3em;
-            font-weight: 800;
-            background: linear-gradient(135deg, #FF006E, #3A86FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-        }
-
-        .message-box {
-            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(58, 134, 255, 0.1));
-            border-left: 6px solid #FF006E;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            text-align: left;
-            font-size: 1.15em;
-            line-height: 1.9;
-            color: #333;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            font-weight: 500;
-        }
-
-        .message-box p {
-            margin-bottom: 20px;
-        }
-
-        .message-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .heartfelt {
-            font-weight: 700;
-            background: linear-gradient(135deg, #FF006E, #FB5607);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .celebration-emoji {
-            font-size: 5em;
-            margin: 40px 0;
-            animation: celebrateFloat 2s ease-in-out infinite;
-            display: inline-block;
-        }
-
-        @keyframes celebrateFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-40px) rotate(10deg); }
-        }
-
-        .btn-back {
-            margin-top: 40px;
-            padding: 15px 40px;
+        .btn-share {
+            padding: 15px 50px;
             font-size: 1em;
-            font-weight: 600;
-            background: #f0f0f0;
-            color: #333;
-            border: 2px solid #ddd;
-            border-radius: 15px;
+            font-weight: 700;
+            background: #f093fb;
+            color: white;
+            border: none;
+            border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
-        .btn-back:hover {
-            background: #e0e0e0;
-            transform: translateX(-8px);
-            border-color: #999;
+        .btn-share:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(240, 147, 251, 0.4);
         }
 
-        /* Premium Confetti */
+        /* Confetti */
         .confetti {
             position: fixed;
             pointer-events: none;
-            z-index: 100;
+            z-index: 500;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
+            .landing-content {
                 padding: 50px 30px;
             }
 
@@ -432,166 +401,157 @@
                 font-size: 2.5em;
             }
 
-            .logo {
-                font-size: 3.5em;
-            }
-
-            .thank-you-title {
-                font-size: 2.2em;
-            }
-
-            .avatars-grid {
-                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-                gap: 20px;
-            }
-
-            .avatar-button {
-                width: 100px;
-                height: 100px;
-                font-size: 3em;
-            }
-
-            .message-box {
-                padding: 25px;
-                font-size: 1em;
-            }
-
-            .avatar-large {
+            .emoji-burst {
                 font-size: 4em;
             }
 
-            .celebration-emoji {
-                font-size: 3em;
+            .modal-content {
+                width: 95%;
+                max-height: 85vh;
+            }
+
+            .modal-header h2 {
+                font-size: 2.2em;
+            }
+
+            .modal-header {
+                padding: 40px 30px 30px;
+            }
+
+            .image-container, .modal-body, .modal-footer {
+                padding: 25px;
+            }
+
+            .memory-image, .image-placeholder {
+                height: 250px;
+            }
+
+            .btn-primary {
+                padding: 15px 40px;
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="backdrop">
-        <div class="shape circle" style="width: 200px; height: 200px; background: #FF006E; top: 10%; left: 10%;"></div>
-        <div class="shape square" style="width: 150px; height: 150px; background: #3A86FF; top: 60%; right: 15%;"></div>
-        <div class="shape circle" style="width: 100px; height: 100px; background: #FFBE0B; bottom: 20%; left: 30%;"></div>
+    <div class="stars" id="starContainer"></div>
+
+    <!-- Landing Page -->
+    <div class="landing">
+        <div class="landing-content">
+            <div class="emoji-burst">🎉</div>
+            <h1>Celebrate with Me</h1>
+            <p class="tagline">March 6th was my best birthday ever.<br>Let me thank someone special.</p>
+
+            <form onsubmit="handleSubmit(event)" class="input-wrapper">
+                <label class="input-label">What's your name?</label>
+                <input type="text" id="nameInput" placeholder="Enter your name..." autocomplete="off" required />
+                <button type="submit" class="btn-primary">✨ Let's Celebrate ✨</button>
+            </form>
+        </div>
     </div>
 
-    <div class="container">
-        <!-- Selection Section -->
-        <div id="selectionSection" class="selection-section">
-            <div class="header">
-                <div class="logo">🎊</div>
-                <h1>The Best Night Ever</h1>
-                <p class="subtitle">March 6th - A Night to Remember</p>
+    <!-- Modal Popup -->
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalName">Thank You!</h2>
+                <div class="relationship-tag" id="relationshipTag">Special Friend</div>
             </div>
 
-            <div class="divider"></div>
-
-            <p class="description">
-                This was my <span class="heartfelt">best birthday ever</span>, and it wouldn't have been the same without YOU! 
-                Tap your vibe to see your special message 🚀
-            </p>
-
-            <div class="avatars-grid">
-                <button class="avatar-button" onclick="selectAvatar('🌟')">🌟</button>
-                <button class="avatar-button" onclick="selectAvatar('🚀')">🚀</button>
-                <button class="avatar-button" onclick="selectAvatar('🎨')">🎨</button>
-                <button class="avatar-button" onclick="selectAvatar('💎')">💎</button>
-                <button class="avatar-button" onclick="selectAvatar('🌈')">🌈</button>
-                <button class="avatar-button" onclick="selectAvatar('⭐')">⭐</button>
+            <div class="image-container">
+                <img id="memoryImage" class="memory-image" style="display: none;" />
+                <div id="imagePlaceholder" class="image-placeholder">📸</div>
             </div>
 
-            <div class="input-section">
-                <label class="input-label">Don't see your vibe? Enter your name:</label>
-                <form onsubmit="handleCustomName(event)">
-                    <input type="text" id="nameInput" placeholder="Your name here..." autocomplete="off" />
-                    <button type="submit" class="btn-submit">🎉 Let's Go! 🎉</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Thank You Section -->
-        <div id="thankYouSection" class="thank-you-section" style="display: none;">
-            <div class="thank-you-header">
-                <div class="avatar-large" id="selectedAvatar">🌟</div>
-                <h2 class="thank-you-title">Thank You!</h2>
+            <div class="modal-body">
+                <div class="message-content" id="personalMessage"></div>
+                <div class="celebration-icons">🎂 ✨ 🎈</div>
             </div>
 
-            <div class="celebration-emoji">🎂 ✨ 🎈 🎊</div>
-
-            <div class="message-box" id="personalMessage"></div>
-
-            <div class="celebration-emoji">💝 🌟 🎉 💫</div>
-
-            <button class="btn-back" onclick="goBack()">← Back to Avatars</button>
+            <div class="modal-footer">
+                <button class="btn-close" onclick="closeModal()">← Back</button>
+                <button class="btn-share" onclick="shareMessage()">💝 Share This</button>
+            </div>
         </div>
     </div>
 
     <script>
-        const messages = {
-            '🌟': {
-                subject: 'a Shining Star',
-                message: `You absolutely radiated with brightness and made my birthday shine even more. Your positive energy was contagious, and every moment with you felt magical. Thank you for being the star that lights up my world. Your presence was truly unforgettable, and I'm endlessly grateful for the joy you brought to my special day. 💫`
-            },
-            '🚀': {
-                subject: 'a Rocket of Energy',
-                message: `You brought incredible momentum and excitement to every single moment! Your enthusiasm and adventurous spirit made my birthday an absolute blast. You didn't just attend—you helped launch this party to the stratosphere! Thank you for bringing that infectious energy that made everything feel larger than life. You're one of a kind! 🚀`
-            },
-            '🎨': {
-                subject: 'an Artist of Kindness',
-                message: `You painted my birthday with the most beautiful moments and genuine care. Your thoughtfulness and creative spirit made everything feel extra special. You have this amazing ability to add color and meaning to everything you do. Thank you for crafting such incredible memories with me. You truly are a masterpiece of a friend! 🎨`
-            },
-            '💎': {
-                subject: 'a Precious Gem',
-                message: `You are rare, valuable, and absolutely irreplaceable. Your presence on my birthday made it infinitely more precious. You shine with an authenticity and beauty that's truly exceptional. Every moment with you feels like a treasure, and my birthday was made infinitely better because you were there. Thank you for being the gem that you are! 💎`
-            },
-            '🌈': {
-                subject: 'a Rainbow of Joy',
-                message: `You brought every color of happiness and beauty to my celebration. Your vibrant spirit and optimistic nature made everything feel brighter and more joyful. You have this incredible gift of bringing hope and wonder to those around you. Thank you for painting my birthday in the most beautiful shades of memories I'll cherish forever! 🌈`
-            },
-            '⭐': {
-                subject: 'a Star of Loyalty',
-                message: `You stand out in the most amazing way. Your unwavering support and genuine friendship mean the world to me. You showed up not just physically, but with your whole heart, making my birthday feel incredibly special. Your loyalty and authenticity are what make you so exceptional. Thank you for being the star that never stops shining in my life! ⭐`
+        // Friend Data Structure - Ready for personalization
+        const friendData = {
+            'default': {
+                relationship: 'Special Friend',
+                message: (name) => `
+                    <p>Dear <span class="highlight">${name}</span>,</p>
+                    <p>Thank you so much for being part of my birthday celebration on March 6th. Your presence made my day incredibly special and filled it with joy. You mean a lot to me, and having you there was everything.</p>
+                    <p>This truly was my <span class="highlight">best birthday ever</span>, and you're a huge part of why. Thank you for being such an amazing friend and for making this celebration unforgettable.</p>
+                    <p>With all my love and gratitude,<br><span class="highlight">Your Friend</span></p>
+                `,
+                image: null
             }
         };
 
-        function selectAvatar(emoji) {
-            const data = messages[emoji];
-            document.getElementById('selectedAvatar').textContent = emoji;
-            document.getElementById('personalMessage').innerHTML = `
-                <p>You are <span class="heartfelt">${data.subject}</span></p>
-                <p>${data.message}</p>
-            `;
-            document.getElementById('selectionSection').style.display = 'none';
-            document.getElementById('thankYouSection').style.display = 'block';
-            createConfetti();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function handleCustomName(event) {
-            event.preventDefault();
-            const name = document.getElementById('nameInput').value.trim();
-            if (name) {
-                document.getElementById('selectedAvatar').textContent = '✨';
-                document.getElementById('personalMessage').innerHTML = `
-                    <p><span class="heartfelt">Dear ${name}</span></p>
-                    <p>Thank you so much for being part of my celebration on March 6th. Your presence made my birthday incredibly special and meaningful. You added so much joy, laughter, and warmth to the day. This truly was my best birthday ever, and having you there was a huge part of that. You're someone truly special to me, and I'm grateful for you every single day. Thank you for making this night unforgettable! 💝</p>
-                `;
-                document.getElementById('selectionSection').style.display = 'none';
-                document.getElementById('thankYouSection').style.display = 'block';
-                createConfetti();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+        function generateStars() {
+            const container = document.getElementById('starContainer');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(star);
             }
         }
 
-        function goBack() {
-            document.getElementById('thankYouSection').style.display = 'none';
-            document.getElementById('selectionSection').style.display = 'block';
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('nameInput').value.trim();
+
+            if (name) {
+                const data = friendData[name.toLowerCase()] || friendData['default'];
+
+                document.getElementById('modalName').textContent = `Thank You, ${name}! 🎊`;
+                document.getElementById('relationshipTag').textContent = data.relationship;
+                document.getElementById('personalMessage').innerHTML = data.message(name);
+
+                if (data.image) {
+                    document.getElementById('memoryImage').src = data.image;
+                    document.getElementById('memoryImage').style.display = 'block';
+                    document.getElementById('imagePlaceholder').style.display = 'none';
+                } else {
+                    document.getElementById('memoryImage').style.display = 'none';
+                    document.getElementById('imagePlaceholder').style.display = 'flex';
+                }
+
+                document.getElementById('thankYouModal').style.display = 'block';
+                createConfetti();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('thankYouModal').style.display = 'none';
             document.getElementById('nameInput').value = '';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function shareMessage() {
+            const name = document.getElementById('nameInput').value;
+            const text = `${name}, I received this special thank you message! 🎉`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Birthday Thank You',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                alert('Thanks for celebrating with me! 💝');
+            }
         }
 
         function createConfetti() {
-            const colors = ['#FF006E', '#FB5607', '#FFBE0B', '#8338EC', '#3A86FF'];
-            const emojis = ['🎉', '✨', '🎊', '🎈', '💝', '🌟', '🚀', '🎁'];
-            const count = 80;
+            const colors = ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe'];
+            const emojis = ['🎉', '✨', '🎊', '🎈', '💝', '🌟', '🎁'];
+            const count = 100;
 
             for (let i = 0; i < count; i++) {
                 setTimeout(() => {
@@ -600,19 +560,19 @@
                     confetti.style.left = Math.random() * window.innerWidth + 'px';
                     confetti.style.top = '-50px';
                     confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                    confetti.style.fontSize = Math.random() * 20 + 20 + 'px';
-                    confetti.style.opacity = Math.random() * 0.7 + 0.3;
-                    
+                    confetti.style.fontSize = Math.random() * 25 + 20 + 'px';
+                    confetti.style.opacity = Math.random() * 0.8 + 0.3;
+
                     document.body.appendChild(confetti);
 
                     let pos = 0;
-                    const speed = Math.random() * 3 + 2;
-                    const drift = Math.random() * 100 - 50;
+                    const speed = Math.random() * 4 + 2;
+                    const drift = Math.random() * 150 - 75;
 
                     const animate = () => {
                         pos += speed;
-                        confetti.style.transform = `translate(${Math.sin(pos * 0.02) * drift}px, ${pos}px) rotate(${pos * 3}deg)`;
-                        
+                        confetti.style.transform = `translate(${Math.sin(pos * 0.02) * drift}px, ${pos}px) rotate(${pos * 4}deg)`;
+
                         if (pos < window.innerHeight + 100) {
                             requestAnimationFrame(animate);
                         } else {
@@ -621,9 +581,18 @@
                     };
 
                     animate();
-                }, i * 15);
+                }, i * 10);
             }
         }
+
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('thankYouModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        generateStars();
     </script>
 </body>
 </html>
